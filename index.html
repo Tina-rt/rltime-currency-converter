@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <title>Currency converter to MGA</title>
+  </head>
+  <body>
+    <div class="title">Exchange Rate Converter</div>
+    <div class="page-price-converter">
+      <div>Convert price in this page to</div>
+      <div>
+        <select class="b p-1" name="page_target_price" id="page_target_price">
+          <option value="MGA">MGA</option>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+        </select>
+      </div>
+    </div>
+    <div class="btn" id="convert">
+      <i class="fa-solid fa-rotate"></i>
+      <span>Convert</span>
+    </div>
+    <div class="converter">
+      <input type="number" min="0" id="rate-input" />
+      <select name="from_cur" id="from_cur">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+        <option value="MGA">MGA</option>
+      </select>
+      <div>to</div>
+      <select name="to_cur" id="to_cur">
+        <option value="MGA">MGA</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+    <div class="result">
+      <div>Converted amount</div>
+      <div id="converted-amount">0</div>
+    </div>
+  </body>
+  <div class="rate">
+    <div id="rate-1">1 EUR = 4600 MGA</div>
+    <div id="rate-2">1 MGA = 0.003 EUR</div>
+  </div>
+  <script src="popup.js"></script>
+</html>
+
+<style>
+  @font-face {
+    font-family: "Lexend";
+    src: url("./fonts/Lexend-VariableFont_wght.ttf");
+  }
+  :root {
+    --bg-secon: #424856ff;
+    --border-color: #9095a1ff;
+    --border-radius: 4px;
+    --primary: #1dd75bff;
+    --primary-hover: #1ac052ff;
+
+    --input-h: 40px;
+  }
+  body {
+    font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background: #323743ff;
+    color: white;
+    transition: all 0.2s;
+    border: 0;
+    font-size: 14px;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .page-price-converter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  select,
+  input {
+    background-color: var(--bg-secon);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    max-width: 100px;
+    min-width: 80px;
+    color: white;
+    height: var(--input-h);
+    transition: all 0.1s;
+    padding: 0 10px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
+  select:focus {
+    border: 2px solid var(--border-color);
+    outline: none;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    background-color: var(--primary);
+    color: rgb(64, 64, 64);
+    transition: all 0.2s;
+    cursor: pointer;
+    height: var(--input-h);
+    font-size: 18px;
+  }
+  .btn:hover {
+    background: var(--primary-hover);
+  }
+
+  .converter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    border-radius: var(--border-radius);
+    height: 80px;
+    background-color: var(--bg-secon);
+    padding: 0 20px;
+  }
+  #converted-amount {
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .rate {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    font-style: italic;
+  }
+</style>

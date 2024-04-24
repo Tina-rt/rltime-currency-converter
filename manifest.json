@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Currency to ariary ",
+    "version": "1.0",
+    "description": "Convert specific currency on web pages to MGA (Ariary).",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*",
+                "file:///C:/Users/Asus/rltime-currency-converter/test.html"
+            ],
+            "js": [
+                "jquery.js",
+                "content.js"
+            ]
+        }
+    ]
+}
