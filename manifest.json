@@ -1,27 +1,31 @@
 {
-    "manifest_version": 3,
-    "name": "Currency to ariary ",
-    "version": "1.0",
-    "description": "Convert specific currency on web pages to MGA (Ariary).",
-    "background": {
-        "service_worker": "background.js"
-    },
-    "permissions": [
-        "activeTab"
-    ],
-    "action": {
-        "default_popup": "index.html"
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "https://*/*",
-                "file:///C:/Users/Asus/rltime-currency-converter/test.html"
-            ],
-            "js": [
-                "jquery.js",
-                "content.js"
-            ]
-        }
-    ]
+  "manifest_version": 3,
+  "name": "AriaryConverter",
+  "version": "1.0",
+  "description": "Convert amazon price to MGA (Ariary) and utilities for quick conversion.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "icons": {
+    "16": "icons/extension-icon16x16.png",
+    "32": "icons/extension-icon32x32.png",
+    "48": "icons/extension-icon48x48.png",
+    "128": "icons/extension-icon128x128.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
 }
